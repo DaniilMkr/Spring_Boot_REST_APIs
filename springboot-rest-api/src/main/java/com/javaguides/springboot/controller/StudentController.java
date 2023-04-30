@@ -2,6 +2,7 @@ package com.javaguides.springboot.controller;
 
 import com.javaguides.springboot.bean.Student;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -14,9 +15,10 @@ public class StudentController {
     // http://localhost:8090/student
 
     @GetMapping("student")
-    public Student getStudent() {
+    public ResponseEntity<Student> getStudent() {
         Student student = new Student(1, "Daniil", "Makarov");
-        return student;
+        //return new ResponseEntity<>(student,HttpStatus.OK);
+        return ResponseEntity.ok().header("custom-header", "daniil").body(student);
     }
 
     // http://localhost:8090/students
@@ -73,4 +75,6 @@ public class StudentController {
         System.out.println(studentId);
         return "Student deleted successfully!";
     }
+    // Spring Boot REST API that handles HTTP Delete Request
+
 }
