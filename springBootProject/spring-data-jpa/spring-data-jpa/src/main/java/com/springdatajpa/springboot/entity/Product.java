@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "products",
+@Table(name = "hibernate",
         schema = "ecommerce",
         uniqueConstraints = {
         @UniqueConstraint(
@@ -16,7 +16,14 @@ import java.time.LocalDateTime;
 public class Product {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "product_generator")
+    @SequenceGenerator(
+            name = "product_generator",
+            sequenceName = "product_sequence_name",
+            allocationSize = 1
+    )
     private Long id;
     @Column(name = "stock_keep_unit",nullable = false)
     private String sku;
