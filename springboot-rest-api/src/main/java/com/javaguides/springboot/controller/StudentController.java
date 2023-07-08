@@ -26,9 +26,9 @@ public class StudentController {
     @GetMapping()
     public List<Student> getStudents() {
         List<Student> students = new ArrayList<>();
-        students.add(new Student(1, "Andrey", "Makarov"));
-        students.add(new Student(2, "Daniil", "Makarov"));
-        students.add(new Student(3, "Anna", "Makarova"));
+        students.add(new Student(1, "Andrey", "Orlov"));
+        students.add(new Student(2, "Anton", "Ivanov"));
+        students.add(new Student(3, "Kostya", "Kuznecov"));
         return students;
     }
 
