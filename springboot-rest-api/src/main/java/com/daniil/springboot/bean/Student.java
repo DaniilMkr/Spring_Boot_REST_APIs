@@ -1,4 +1,4 @@
-package com.javaguides.springboot.bean;
+package com.daniil.springboot.bean;
 
 public class Student {
     private int id;
